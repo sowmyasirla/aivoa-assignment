@@ -1,5 +1,26 @@
-.history/
-.env
+# Python
 __pycache__/
-*.pyc
-node_modules/
+*.py[cod]
+*.log
+
+# Virtual Environment
+backend/venv/
+
+# Environment variables
+.env
+.env.*
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Vite
+.vite/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
