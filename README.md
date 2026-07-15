@@ -1,134 +1,208 @@
-# Aivoa AI Chat Assignment
+# 🤖 AI-First CRM HCP Module
 
-An AI-powered chat application developed as part of the Aivoa Full Stack Developer assignment. The application provides an interactive chat interface with an AI-powered backend API and a responsive frontend.
+An AI-powered Customer Relationship Management (CRM) application for Healthcare Professionals (HCPs). The application enables medical representatives to log HCP interactions using either a structured form or natural language through an AI assistant.
 
-## 🚀 Features
+This project was developed as part of the AIVOA AI Assignment.
 
-* AI-based chat interaction
-* User-friendly chat interface
-* FastAPI backend API
-* React-based frontend
-* Real-time communication between frontend and backend
-* API documentation using Swagger UI
-* Secure environment variable management
-* Responsive design
+---
 
-## 🛠️ Tech Stack
+# Features
 
-### Frontend
+- Log HCP interactions using AI chat
+- Structured interaction form
+- Automatic information extraction using AI
+- Interaction history
+- Edit existing interactions
+- Delete interactions
+- AI-generated interaction summary
+- AI sentiment analysis
+- AI follow-up suggestions
+- Redux state management
+- FastAPI backend
+- LangGraph AI workflow
+- MySQL/PostgreSQL database support
 
-* React.js
-* Vite
-* JavaScript
-* CSS
+---
 
-### Backend
+# Tech Stack
 
-* Python
-* FastAPI
-* Uvicorn
-* AI API Integration
-* REST API
+## Frontend
 
-### Tools
+- React
+- Redux Toolkit
+- CSS
+- Google Inter Font
 
-* Git & GitHub
-* VS Code
-* npm
-* Python Virtual Environment
+## Backend
 
-## 📂 Project Structure
+- Python
+- FastAPI
+- SQLAlchemy
+- LangGraph
+- Groq LLM (Gemma2-9B-IT / Llama-3.3-70B)
+
+## Database
+
+- MySQL / PostgreSQL
+
+---
+
+# AI Agent Architecture
+
+User Input
+
+↓
+
+FastAPI Backend
+
+↓
+
+LangGraph Agent
+
+↓
+
+LLM (Groq)
+
+↓
+
+Tools
+
+- Log Interaction
+- Edit Interaction
+- Summarize Interaction
+- Sentiment Analysis
+- Suggest Follow-up
+
+↓
+
+Database
+
+↓
+
+Frontend
+
+---
+
+# LangGraph Tools
+
+## 1. Log Interaction Tool
+
+Extracts structured information from natural language and stores the interaction.
+
+Example:
+
+- HCP Name
+- Date
+- Time
+- Attendees
+- Topics
+- Materials
+- Samples
+- Outcomes
+- Follow-up Actions
+
+---
+
+## 2. Edit Interaction Tool
+
+Updates an existing interaction in the database.
+
+---
+
+## 3. Summarize Interaction Tool
+
+Creates a concise summary of the interaction.
+
+---
+
+## 4. Sentiment Analysis Tool
+
+Determines whether the interaction sentiment is:
+
+- Positive
+- Neutral
+- Negative
+
+---
+
+## 5. Suggest Follow-up Tool
+
+Generates recommended follow-up actions for the medical representative.
+
+Examples:
+
+- Send latest clinical evidence
+- Schedule follow-up visit
+- Share updated brochure
+- Record HCP feedback
+
+---
+
+# Project Structure
 
 ```
 aivoa-assignment/
-│
-├── backend/
+
+├── backend
 │   ├── main.py
-│   ├── models.py
+│   ├── graph.py
 │   ├── tools.py
+│   ├── models.py
+│   ├── database.py
 │   ├── requirements.txt
-│   └── .env
+│   └── ...
 │
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── AIChat.jsx
-│   │   │   └── InteractionForm.jsx
-│   │   │
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   ├── redux
 │   │   ├── App.jsx
-│   │   ├── App.css
-│   │   ├── index.css
-│   │   └── main.jsx
-│   │
+│   │   └── ...
 │   ├── package.json
-│   └── vite.config.js
+│   └── ...
 │
 └── README.md
 ```
 
-## ⚙️ Installation & Setup
-
-### Clone Repository
-
-```bash
-git clone https://github.com/sowmyasirla/aivoa-assignment.git
-```
-
-Go into project folder:
-
-```bash
-cd aivoa-assignment
-```
-
 ---
 
-# Backend Setup
+# Installation
 
-Navigate to backend:
+## Backend
 
-```bash
-cd backend
+Create a virtual environment.
+
+```
+python -m venv .venv
 ```
 
-Create virtual environment:
+Activate it.
 
-```bash
-python -m venv venv
+Windows
+
+```
+.venv\Scripts\activate
 ```
 
-Activate virtual environment:
+Install dependencies.
 
-### Windows
-
-```bash
-venv\Scripts\activate
 ```
-
-Install dependencies:
-
-```bash
 pip install -r requirements.txt
 ```
 
-Create a `.env` file inside backend folder:
+Run FastAPI.
 
 ```
-GOOGLE_API_KEY=your_api_key_here
-```
-
-Run backend server:
-
-```bash
 uvicorn main:app --reload
 ```
 
-Backend will run at:
+Backend runs at
 
 ```
 http://127.0.0.1:8000
 ```
 
-API documentation:
+Swagger API
 
 ```
 http://127.0.0.1:8000/docs
@@ -136,29 +210,21 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# Frontend Setup
+## Frontend
 
-Open a new terminal.
+Install dependencies.
 
-Navigate to frontend:
-
-```bash
-cd frontend
 ```
-
-Install dependencies:
-
-```bash
 npm install
 ```
 
-Start development server:
+Run React.
 
-```bash
+```
 npm run dev
 ```
 
-Frontend will run at:
+Frontend runs at
 
 ```
 http://localhost:5173
@@ -166,53 +232,102 @@ http://localhost:5173
 
 ---
 
-## 🔄 Application Flow
+# Environment Variables
 
-1. User enters a message in the frontend chat interface.
-2. Frontend sends the request to the FastAPI backend.
-3. Backend processes the request using AI services.
-4. AI response is returned through the API.
-5. Frontend displays the response to the user.
+Create a `.env` file in the backend folder.
 
-## 🔐 Environment Variables
+Example:
 
-Sensitive information such as API keys is stored in `.env` files.
+```
+GROQ_API_KEY=your_groq_api_key
+DATABASE_URL=your_database_url
+```
 
-Environment files are excluded from GitHub using `.gitignore` to protect credentials.
+---
 
-## 📌 API Endpoints
+# API Endpoints
 
-### Chat API
+## AI Chat
 
 ```
 POST /chat
 ```
 
-Used for sending user messages and receiving AI responses.
+Logs an interaction using AI.
 
-### Documentation
+---
+
+## Get History
 
 ```
-GET /docs
+GET /interactions
 ```
 
-Provides interactive API documentation using Swagger UI.
+Returns all interactions.
 
-## 🧪 Testing
+---
 
-Backend API can be tested using:
+## Save Interaction
 
-* Swagger UI
-* Postman
-* Frontend chat interface
+```
+POST /interactions
+```
 
-## 👩‍💻 Author
+Creates a new interaction.
+
+---
+
+## Update Interaction
+
+```
+PUT /interactions/{id}
+```
+
+Updates an existing interaction.
+
+---
+
+## Delete Interaction
+
+```
+DELETE /interactions/{id}
+```
+
+Deletes an interaction.
+
+---
+
+# Workflow
+
+1. User enters interaction details using AI chat or manually.
+2. LangGraph agent processes the input.
+3. Groq LLM extracts structured information.
+4. AI tools generate:
+   - Summary
+   - Sentiment
+   - Follow-up suggestions
+5. Data is saved in the SQL database.
+6. Interaction history is updated.
+
+---
+
+# Future Enhancements
+
+- Voice-to-text interaction logging
+- HCP search and filtering
+- Authentication and user roles
+- Dashboard analytics
+- Email reminders
+- Calendar integration
+- PDF export
+- Advanced reporting
+
+---
+
+# Author
 
 **Sowmya Sirla**
 
-GitHub:
-https://github.com/sowmyasirla
+B.Tech Information Technology
 
-## 📄 License
-
-This project was created for the Aivoa Full Stack Developer assignment.
+AI-First CRM HCP Module Assignment
