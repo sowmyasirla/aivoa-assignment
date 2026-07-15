@@ -1,36 +1,529 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-.container {
-  display: flex;
-  height: 100vh;
+
+body{
+
+  font-family:'Inter',Arial,sans-serif;
+  background:#f4f7fb;
+  color:#1f2937;
+
 }
 
-.left-panel {
-  width: 65%;
-  padding: 30px;
-  border-right: 1px solid #ddd;
+
+
+.container{
+
+  max-width:1500px;
+  margin:auto;
+  padding:25px;
+
 }
 
-.right-panel {
-  width: 35%;
-  padding: 30px;
-  background: #fafafa;
+
+
+h1{
+
+  color:#2563eb;
+  margin-bottom:20px;
+  text-align:center;
+
 }
+
+
+
+h2{
+
+  color:#2563eb;
+  margin-bottom:15px;
+
+}
+
+
+
+h3{
+
+  color:#334155;
+  margin:15px 0;
+
+}
+
+
+
+/* MAIN TWO COLUMN */
+
+.crm-layout{
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  align-items:start;
+
+}
+
+
+
+
+/* LEFT FORM */
+
+
+.left-panel{
+
+
+  background:white;
+  border-radius:15px;
+  padding:25px;
+
+  height:850px;
+
+  overflow-y:auto;
+
+  box-shadow:
+  0 5px 15px rgba(0,0,0,.08);
+
+}
+
+
+
+.left-panel::-webkit-scrollbar{
+
+  width:8px;
+
+}
+
+
+
+/* AI BOX */
+
+
+.ai-box{
+
+
+  background:white;
+
+  border-radius:15px;
+
+  padding:25px;
+
+  height:850px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  box-shadow:
+  0 5px 15px rgba(0,0,0,.08);
+
+
+}
+
+
+
+/* CHAT */
+
+
+.chat-window{
+
+
+  flex:1;
+
+  overflow-y:auto;
+
+  background:#fafafa;
+
+  border:1px solid #dbe3ec;
+
+  border-radius:12px;
+
+  padding:15px;
+
+  margin-bottom:15px;
+
+
+}
+
+
+
+.user-message{
+
+
+  background:#2563eb;
+
+  color:white;
+
+  padding:12px;
+
+  border-radius:18px 18px 5px 18px;
+
+  margin:10px 0 10px auto;
+
+  max-width:85%;
+
+  white-space:pre-wrap;
+
+}
+
+
+
+.ai-message{
+
+
+  background:#eef4ff;
+
+  padding:12px;
+
+  border-radius:18px 18px 18px 5px;
+
+  margin:10px auto 10px 0;
+
+  max-width:85%;
+
+  white-space:pre-wrap;
+
+  border:1px solid #dbeafe;
+
+
+}
+
+
+
+/* FORM */
+
+
+label{
+
+ display:block;
+
+ font-weight:600;
+
+ margin:12px 0 5px;
+
+}
+
+
 
 input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0 20px;
+textarea,
+select{
+
+
+ width:100%;
+
+ padding:12px;
+
+ border:1px solid #cbd5e1;
+
+ border-radius:8px;
+
+ font-size:15px;
+
+ margin-bottom:12px;
+
+
 }
 
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  cursor: pointer;
+
+
+input:focus,
+textarea:focus,
+select:focus{
+
+
+ outline:none;
+
+ border-color:#2563eb;
+
+
+}
+
+
+
+textarea{
+
+ resize:none;
+
+ min-height:90px;
+
+}
+
+
+
+button{
+
+
+ background:#2563eb;
+
+ color:white;
+
+ border:none;
+
+ padding:12px;
+
+ border-radius:8px;
+
+ cursor:pointer;
+
+ font-weight:600;
+
+}
+
+
+
+button:hover{
+
+ background:#1d4ed8;
+
+}
+
+
+
+.log-btn{
+
+
+ width:100%;
+
+ margin-top:10px;
+
+ padding:15px;
+
+}
+
+
+
+/* SENTIMENT */
+
+
+.sentiment-options{
+
+
+ display:flex;
+
+ gap:25px;
+
+ margin:15px 0;
+
+
+}
+
+
+
+.sentiment-item{
+
+
+ display:flex;
+
+ align-items:center;
+
+ gap:8px;
+
+ cursor:pointer;
+
+}
+
+
+
+.sentiment-item input{
+
+ width:auto;
+
+}
+
+
+
+/* FOLLOW UPS */
+
+
+.followups{
+
+
+ background:#f8fafc;
+
+ border:1px solid #dbe3ec;
+
+ padding:15px;
+
+ border-radius:10px;
+
+ margin-top:15px;
+
+
+}
+
+
+
+.followups li{
+
+ margin-bottom:8px;
+
+}
+
+
+
+
+/* HISTORY */
+
+
+.history{
+
+
+ margin-top:30px;
+
+
+}
+
+
+
+.history-card{
+
+
+ background:white;
+
+ padding:20px;
+
+ border-radius:12px;
+
+ margin-bottom:15px;
+
+ box-shadow:
+ 0 4px 12px rgba(0,0,0,.08);
+
+
+}
+
+
+
+.history-card h3{
+
+ color:#2563eb;
+
+}
+
+
+
+.history-card p{
+
+ margin:8px 0;
+
+ line-height:1.5;
+
+}
+
+
+
+/* BUTTONS */
+
+
+.edit-btn{
+
+ background:#16a34a;
+
+ margin-right:10px;
+
+}
+
+
+
+.delete-btn{
+
+ background:#dc2626;
+
+}
+
+
+
+/* SCROLLBAR */
+
+
+::-webkit-scrollbar{
+
+ width:8px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+ background:#f1f5f9;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+ background:#94a3b8;
+
+ border-radius:10px;
+
+}
+
+
+
+
+
+/* RESPONSIVE */
+
+
+@media(max-width:1000px){
+
+
+.crm-layout{
+
+ grid-template-columns:1fr;
+
+}
+
+
+
+.left-panel,
+.ai-box{
+
+ height:auto;
+
+ min-height:700px;
+
+}
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.container{
+
+ padding:15px;
+
+}
+
+
+
+h1{
+
+ font-size:24px;
+
+}
+
+
+
+.left-panel,
+.ai-box{
+
+ padding:15px;
+
+}
+
+
+
+.sentiment-options{
+
+ flex-wrap:wrap;
+
+}
+
+
 }
