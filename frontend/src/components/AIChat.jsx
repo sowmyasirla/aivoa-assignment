@@ -81,8 +81,8 @@ try{
 
 
 const res = await fetch(
+"https://aivoa-backend-t0me.onrender.com/chat",
 
-"http://127.0.0.1:8000/chat",
 
 {
 

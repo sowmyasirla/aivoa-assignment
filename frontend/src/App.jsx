@@ -70,7 +70,7 @@ function App(){
 
 
       const res = await fetch(
-        "http://127.0.0.1:8000/interactions"
+        "https://aivoa-backend-t0me.onrender.com/interactions",
       );
 
 
@@ -128,7 +128,7 @@ function App(){
 
         const res = await fetch(
 
-          "http://127.0.0.1:8000/interactions"
+          "https://aivoa-backend-t0me.onrender.com/interactions",
 
         );
 
@@ -285,7 +285,7 @@ function App(){
 
       await fetch(
 
-        `http://127.0.0.1:8000/interactions/${id}`,
+        `https://aivoa-backend-t0me.onrender.com/interactions/${id}`,
 
         {
 

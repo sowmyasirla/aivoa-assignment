@@ -57,8 +57,8 @@ try{
 
 
 const response=await fetch(
+"https://aivoa-backend-t0me.onrender.com/interactions",
 
-"http://127.0.0.1:8000/interactions",
 
 {
 
@@ -166,7 +166,7 @@ try{
 
 const response=await fetch(
 
-`http://127.0.0.1:8000/interactions/${formData.id}`,
+`https://aivoa-backend-t0me.onrender.com/interactions/${formData.id}`,
 
 {
 
